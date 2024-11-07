@@ -1,0 +1,33 @@
+version: '3.8'  # Defines the version of the Compose file format
+
+services:
+  # MongoDB service
+  mongo:
+    image: mongo               # Uses the official MongoDB image
+    container_name: mongodb
+    ports:
+      - "27017:27017"          # Maps port 27017 on the host to 27017 on the container
+    volumes:
+      - mongo-data:/data/db    # Creates a volume for MongoDB data persistence
+
+  flask_app:
+    build:
+      context: .
+    container_name: flask_app
+    environment:
+      - FLASK_APP=main.py
+      - FLASK_ENV=development
+      - MONGO_URI=mongodb://mongo:27017/mydb
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+
+# Named volumes
+volumes:
+  mongo-data:
+
+# Custom network for service communication
+networks:
+  mynetwork:
+    driver: bridge
