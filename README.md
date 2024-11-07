@@ -1,19 +1,20 @@
-Task and User Management API
+# Task and User Management API
 A simple RESTful API for managing tasks and users, built with Flask and Flask-RESTx. This project includes two microservices: Task and User, each with its own routes and database schema. The project also uses MongoDB as a backend database.
 
-Features
--CRUD operations for managing tasks and users
-JWT-based authentication
-MongoDB integration for data storage
-RESTful API with Swagger documentation available at /docs
-Dockerized setup for easy deployment
-Table of Contents
-Project Structure
-Setup Instructions
-Running the Application
-API Endpoints
-Project Structure
-The project is organized as follows:
+# Features
+- CRUD operations for managing tasks and users
+- JWT-based authentication
+- MongoDB integration for data storage
+- RESTful API with Swagger documentation available at /docs
+- Dockerized setup for easy deployment
+# Table of Contents
+1. Project Structure
+2. Setup Instructions
+3. Running the Application
+4. API Endpoints
+5. Project Structure
+
+# The project is organized as follows:
 
 bash
 Copy code
@@ -37,32 +38,32 @@ task_user_api/
     │   └── user_routes.py    # User routes
     └── schemas/
         └── user_schema.py    # Marshmallow schema for user validation
-Setup Instructions
-Prerequisites
-Python 3.8+
-Docker and Docker Compose
-MongoDB (if not using Docker)
-Installation
-Clone this repository:
+# Setup Instructions
+# Prerequisites
+- Python 3.8+
+- Docker and Docker Compose
+- MongoDB (if not using Docker)
+- Installation
+- Clone this repository:
 
-bash
-Copy code
-git clone <repository_url>
-cd task_user_api
-Create a virtual environment:
+- bash
+- Copy code
+`git clone <repository_url>`
+ `cd task_user_api `
+- Create a virtual environment:
 
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install dependencies:
+- bash
+- Copy code
+`python -m venv venv`
+ `source venv/bin/activate`  # On Windows use `venv\Scripts\activate`
+# Install dependencies:
 
 bash
 Copy code
 pip install -r requirements.txt
 Set up environment variables in a .env file for MongoDB URI and JWT secrets:
 
-makefile
+# makefile
 Copy code
 MONGO_URI=mongodb://mongo:27017/<your_database>
 JWT_SECRET_KEY=your_secret_key
@@ -74,7 +75,7 @@ Copy code
 docker-compose up --build
 This will spin up the Task and User services on ports 5000 and 5001 respectively, and MongoDB on port 27017.
 
-Running the Application
+# Running the Application
 Without Docker
 Run the application locally by running:
 
@@ -83,7 +84,7 @@ Copy code
 python main.py
 Access the application at http://127.0.0.1:5000.
 
-With Docker
+# With Docker
 If running with Docker Compose, access the services at:
 
 Task service: http://127.0.0.1:5000/tasks
